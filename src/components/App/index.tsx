@@ -1,4 +1,4 @@
-import React from 'react';
+import GlobalStyle from '../../styles/global';
 
 type Props = {
     children: JSX.Element
@@ -6,7 +6,9 @@ type Props = {
 
 function App({ children }: Props) {
     return (
-        <div className="App">
+        <div className="app">
+            <GlobalStyle />
+
             { children }
         </div>
     );
