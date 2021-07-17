@@ -8,7 +8,8 @@ function NavBar() {
         <Container className="navbar">
             <SearchInput />
 
-            <Link to="/heroes/goods">Heróis</Link>
+            <Link to="/heroes/goods">Heróis </Link>
+            <Link to="/heroes/bads">Vilões</Link>
         </Container>
     );
 }

@@ -4,6 +4,7 @@ import App from './components/App';
 import Home from './pages/Home';
 import Heroes from './pages/Heroes';
 import Hero from './pages/Hero';
+import BadHeroes from './pages/BadHeroes';
 
 import {
     BrowserRouter as Router,
@@ -22,7 +23,10 @@ ReactDOM.render(
                     <Route path="/heroes/goods">
                         <Heroes />
                     </Route>
-                    <Route path="/heroes/:id">
+                    <Route path="/heroes/bads">
+                        <BadHeroes />
+                    </Route>
+                    <Route path="/hero/:id">
                         <Hero />
                     </Route>
                 </Switch>

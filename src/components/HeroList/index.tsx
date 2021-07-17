@@ -14,7 +14,7 @@ function HeroList({ heroes }: Props) {
 
                     <h2>{hero.name}</h2>
 
-                    <Link style={{ color: '#000' }} to={`/heroes/${hero.id}`}>Saiba Mais</Link>
+                    <Link style={{ color: '#000' }} to={`/hero/${hero.id}`}>Saiba Mais</Link>
                 </li>
             ))}
         </ul>
