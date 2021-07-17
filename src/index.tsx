@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import Home from './pages/Home';
 import Heroes from './pages/Heroes';
+import Hero from './pages/Hero';
 
 import {
     BrowserRouter as Router,
@@ -20,6 +21,9 @@ ReactDOM.render(
                     </Route>
                     <Route path="/heroes/goods">
                         <Heroes />
+                    </Route>
+                    <Route path="/heroes/:id">
+                        <Hero />
                     </Route>
                 </Switch>
             </App>

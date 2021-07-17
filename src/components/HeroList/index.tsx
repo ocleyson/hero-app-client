@@ -1,4 +1,5 @@
 import { IHero } from '../../types/IHero';
+import { Link } from 'react-router-dom'
 
 type Props = {
     heroes: IHero[]
@@ -12,6 +13,8 @@ function HeroList({ heroes }: Props) {
                     <img src={hero.imageUrl} alt={hero.name} />
 
                     <h2>{hero.name}</h2>
+
+                    <Link style={{ color: '#000' }} to={`/heroes/${hero.id}`}>Saiba Mais</Link>
                 </li>
             ))}
         </ul>
