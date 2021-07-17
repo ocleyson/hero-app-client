@@ -2,10 +2,12 @@ import { IHero } from '../../types/IHero';
 import { Link } from 'react-router-dom'
 
 type Props = {
-    heroes: IHero[]
+    heroes: IHero[];
+    deleteHero?: (heroId: string) => void
 }
 
-function HeroList({ heroes }: Props) {
+function HeroList({ heroes, deleteHero }: Props) {
+
     return (
         <ul>
             {heroes?.map((hero) => (
@@ -15,6 +17,8 @@ function HeroList({ heroes }: Props) {
                     <h2>{hero.name}</h2>
 
                     <Link style={{ color: '#000' }} to={`/hero/${hero.id}`}>Saiba Mais</Link>
+
+                    {!!deleteHero && <button type="button" onClick={() => deleteHero(hero.id)}>Excluir super herói/vilão</button>}
                 </li>
             ))}
         </ul>

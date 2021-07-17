@@ -12,6 +12,12 @@ function StoredHeroes() {
         setHeroes(data)
     }
 
+    const deleteHero = async (heroId: string) => {
+        await api.delete(`/heroes/${heroId}`)
+
+        setHeroes(heroes.filter((hero) => hero.id !== heroId))
+    }
+
     useEffect(() => {
         fetchHeroes()
     }, [])
@@ -21,7 +27,7 @@ function StoredHeroes() {
         <div>
             <h2>Heróis cadastrados</h2>
 
-            <HeroList heroes={heroes} />
+            <HeroList heroes={heroes} deleteHero={deleteHero} />
         </div>
     );
 }
