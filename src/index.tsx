@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Heroes from './pages/Heroes';
 import Hero from './pages/Hero';
 import BadHeroes from './pages/BadHeroes';
+import StoredHeroes from './pages/StoredHeroes';
 
 import {
     BrowserRouter as Router,
@@ -25,6 +26,9 @@ ReactDOM.render(
                     </Route>
                     <Route path="/heroes/bads">
                         <BadHeroes />
+                    </Route>
+                    <Route path="/heroes">
+                        <StoredHeroes />
                     </Route>
                     <Route path="/hero/:id">
                         <Hero />

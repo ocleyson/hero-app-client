@@ -9,7 +9,8 @@ function NavBar() {
             <SearchInput />
 
             <Link to="/heroes/goods">Heróis </Link>
-            <Link to="/heroes/bads">Vilões</Link>
+            <Link to="/heroes/bads">Vilões </Link>
+            <Link to="/heroes">Heróis cadastrados</Link>
         </Container>
     );
 }

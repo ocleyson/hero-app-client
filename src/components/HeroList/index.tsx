@@ -8,7 +8,7 @@ type Props = {
 function HeroList({ heroes }: Props) {
     return (
         <ul>
-            {heroes.map((hero) => (
+            {heroes?.map((hero) => (
                 <li key={hero.id}>
                     <img src={hero.imageUrl} alt={hero.name} />
 
