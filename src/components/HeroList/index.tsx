@@ -1,20 +1,20 @@
-import { HeroContext } from '../../contexts/HeroContext'
+import { IHero } from '../../types/IHero';
 
-function HeroList() {
+type Props = {
+    heroes: IHero[]
+}
+
+function HeroList({ heroes }: Props) {
     return (
-        <HeroContext.Consumer>
-            {context => (
-                <ul>
-                    {context.heroes.map((hero) => (
-                        <li key={hero.id}>
-                            <img src={hero.imageUrl} alt={hero.name} />
+        <ul>
+            {heroes.map((hero) => (
+                <li key={hero.id}>
+                    <img src={hero.imageUrl} alt={hero.name} />
 
-                            <h2>{hero.name}</h2>
-                        </li>
-                    ))}
-                </ul>
-            )}
-        </HeroContext.Consumer>
+                    <h2>{hero.name}</h2>
+                </li>
+            ))}
+        </ul>
     );
 }
 

@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import api from '../../services/api';
 import { IHero } from '../../types/IHero'
 import { HeroContext } from '../../contexts/HeroContext';
+import { useHistory } from 'react-router-dom'
 
 function SearchInput() {
     const [inputText, setInputText] = useState("");
+
+    let history = useHistory()
 
     const fetchHeroes = async () => {
         const { data } = await api.get(`/search/${inputText}`);
@@ -18,6 +21,8 @@ function SearchInput() {
         const data = await fetchHeroes()
 
         setHeroes(data)
+
+        history.push("/")
     }
 
 

@@ -1,11 +1,16 @@
 import HeroList from "../../components/HeroList";
+import { HeroContext } from "../../contexts/HeroContext";
 
 function Home() {
     return (
         <div>
-            <h1>Heróis ou Vilões</h1>
+            <h2>Heróis ou Vilões</h2>
 
-            <HeroList />
+            <HeroContext.Consumer>
+                {context => (
+                    <HeroList heroes={context.heroes} />
+                )}
+            </HeroContext.Consumer>
         </div>
     );
 }
