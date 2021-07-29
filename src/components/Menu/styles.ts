@@ -8,6 +8,7 @@ export const Container = styled.div`
     background-color: ${colors.primary};
     top: 0;
     transition: all 200ms ease-in;
+    z-index: 99999;
 
     svg {
         margin: 5px 0 0 5px;
