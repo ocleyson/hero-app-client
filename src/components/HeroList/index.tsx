@@ -1,5 +1,6 @@
 import { IHero } from '../../types/IHero';
-import { Link } from 'react-router-dom'
+import HeroCard from '../HeroCard';
+import { Ul } from './styles';
 
 type Props = {
     heroes: IHero[];
@@ -9,19 +10,13 @@ type Props = {
 function HeroList({ heroes, deleteHero }: Props) {
 
     return (
-        <ul>
+        <Ul>
             {heroes?.map((hero) => (
                 <li key={hero.id}>
-                    <img src={hero.imageUrl} alt={hero.name} />
-
-                    <h2>{hero.name}</h2>
-
-                    <Link style={{ color: '#000' }} to={`/hero/${hero.id}`}>Saiba Mais</Link>
-
-                    {!!deleteHero && <button type="button" onClick={() => deleteHero(hero.id)}>Excluir super herói/vilão</button>}
+                    <HeroCard hero={hero} deleteHero={deleteHero} />
                 </li>
             ))}
-        </ul>
+        </Ul>
     );
 }
 
