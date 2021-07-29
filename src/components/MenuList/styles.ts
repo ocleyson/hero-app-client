@@ -9,7 +9,7 @@ export const Container = styled.div`
             border-bottom: 1px solid white;
 
             a {
-                text-decoration: none;
+                color: white;
             }
         }
     }
