@@ -25,6 +25,8 @@ function SearchInput() {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>, setHeroes: React.Dispatch<React.SetStateAction<IHero[]>>) => {
         event.preventDefault();
 
+        if (inputText.length === 0) return
+
         const data = await fetchHeroes()
 
         setHeroes(data)
