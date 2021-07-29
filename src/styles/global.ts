@@ -20,6 +20,11 @@ export default createGlobalStyle`
     }
 
     a {
-        color: white
+        text-decoration: none;
+        color: black;
+    }
+
+    main {
+        padding: 10px;
     }
 `;

@@ -3,7 +3,7 @@ import { HeroContext } from "../../contexts/HeroContext";
 
 function Home() {
     return (
-        <div>
+        <main>
             <h2>Heróis ou Vilões</h2>
 
             <HeroContext.Consumer>
@@ -11,7 +11,7 @@ function Home() {
                     <HeroList heroes={context.heroes} />
                 )}
             </HeroContext.Consumer>
-        </div>
+        </main>
     );
 }
 

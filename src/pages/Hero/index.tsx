@@ -33,7 +33,7 @@ function Hero() {
 
 
     return (
-        <div>
+        <main>
             <img src={hero?.imageUrl} alt={hero?.name} />
 
             <h2>Nome: {hero?.name}</h2>
@@ -60,7 +60,7 @@ function Hero() {
                         Cadastrar herói
                     </button>            
             }
-        </div>
+        </main>
     );
 }
 
