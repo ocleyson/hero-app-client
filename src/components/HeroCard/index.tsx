@@ -15,7 +15,7 @@ function HeroCard({ hero, deleteHero }: Props) {
             <Link to={`/hero/${hero.id}`}>
                 <Img src={hero.imageUrl} alt={hero.name} />
 
-                <Title>{hero.name}</Title>
+                <Title>{hero.name} ({hero.alignment === 'good' ? 'herói' : 'vilão'})</Title>
             </Link>
 
             {
