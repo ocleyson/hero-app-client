@@ -1,16 +1,20 @@
+import { useState } from 'react';
 import { Container } from './styles';
-import { Link } from 'react-router-dom'
+import { FiMenu } from 'react-icons/fi'
 
 import SearchInput from '../SearchInput';
+import Menu from '../Menu';
 
 function NavBar() {
-    return (
-        <Container className="navbar">
-            <SearchInput />
+    const [showMenu, setShowMenu] = useState(false)
 
-            <Link to="/heroes/goods">Heróis </Link>
-            <Link to="/heroes/bads">Vilões </Link>
-            <Link to="/heroes">Heróis cadastrados</Link>
+    return (
+        <Container className="nav-bar">
+            <Menu showMenu={showMenu} setShowMenu={setShowMenu} />
+
+            <FiMenu onClick={() => setShowMenu(true)} />
+
+            <SearchInput />
         </Container>
     );
 }
