@@ -31,6 +31,8 @@ export const ContainerStoreHero = styled.div`
     button {
         background-color: transparent;
         border: none;
+        width: 100%;
+        cursor: pointer;
     }
 `;
 
