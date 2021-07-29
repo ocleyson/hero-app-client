@@ -31,6 +31,8 @@ function SearchInput() {
 
         setLoading(false)
 
+        setInputText("");
+
         history.push("/")
     }
 
