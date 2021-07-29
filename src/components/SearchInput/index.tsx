@@ -2,14 +2,21 @@ import React, { useState } from 'react';
 import api from '../../services/api';
 import { IHero } from '../../types/IHero'
 import { HeroContext } from '../../contexts/HeroContext';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+import { FiSearch } from 'react-icons/fi';
+import { Container, Input, Button } from './styles';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from 'react-loader-spinner';
 
 function SearchInput() {
     const [inputText, setInputText] = useState("");
+    const [loading, setLoading] = useState(false);
 
     let history = useHistory()
 
     const fetchHeroes = async () => {
+        setLoading(true)
+
         const { data } = await api.get(`/search/${inputText}`);
 
         return data;
@@ -22,6 +29,8 @@ function SearchInput() {
 
         setHeroes(data)
 
+        setLoading(false)
+
         history.push("/")
     }
 
@@ -29,20 +38,26 @@ function SearchInput() {
     return (
         <HeroContext.Consumer>
             {context => (
-                <div className="search-input">
+                <Container className="search-input">
                     <form onSubmit={(e) => handleSubmit(e, context?.setHeroes)}>
-                        <input 
+                        <Input 
                             type="text"
                             placeholder="pesquise por um herói ou vilão"
                             value={inputText}
                             onChange={(e) => setInputText(e.target.value)}
                         />
 
-                        <button type="submit">
-                            pesquisar
-                        </button>
+                        <Button type="submit">
+                            {loading ?
+                                <Loader 
+                                    type="TailSpin"
+                                />
+                                :
+                                <FiSearch />
+                            }
+                        </Button>
                     </form>
-                </div>
+                </Container>
             )}
         </HeroContext.Consumer>
     );
