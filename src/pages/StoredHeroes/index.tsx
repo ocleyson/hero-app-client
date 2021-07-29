@@ -2,14 +2,20 @@ import { useState, useEffect } from 'react';
 import api from '../../services/api';
 import { IHero } from '../../types/IHero'
 import HeroList from '../../components/HeroList';
+import Loading from '../../components/Loading';
 
 function StoredHeroes() {
     const [heroes, setHeroes] = useState<IHero[]>([])
+    const [loading, setLoading] = useState(false);
 
     const fetchHeroes = async () => {
+        setLoading(true)
+
         const { data } = await api.get(`/heroes`);
 
         setHeroes(data)
+
+        setLoading(false)
     }
 
     const deleteHero = async (heroId: string) => {
@@ -24,11 +30,14 @@ function StoredHeroes() {
 
 
     return (
-        <div>
-            <h2>Heróis cadastrados</h2>
+        <main>
+            <h2>Heróis e Vilões cadastrados</h2>
 
-            <HeroList heroes={heroes} deleteHero={deleteHero} />
-        </div>
+            {loading
+                ? <Loading />
+                : <HeroList heroes={heroes} deleteHero={deleteHero} />
+            }
+        </main>
     );
 }
 
